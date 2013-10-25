@@ -13,9 +13,6 @@
 		3A2E3015181A516900A85FF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3013181A516900A85FF0 /* InfoPlist.strings */; };
 		3A2E3017181A516900A85FF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3016181A516900A85FF0 /* main.m */; };
 		3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E301A181A516900A85FF0 /* AppDelegate.m */; };
-		3A2E301E181A516900A85FF0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E301D181A516900A85FF0 /* RootViewController.m */; };
-		3A2E3021181A516900A85FF0 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3020181A516900A85FF0 /* DataViewController.m */; };
-		3A2E3024181A516900A85FF0 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3023181A516900A85FF0 /* ModelController.m */; };
 		3A2E3027181A516900A85FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3025181A516900A85FF0 /* Main.storyboard */; };
 		3A2E3029181A516900A85FF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3028181A516900A85FF0 /* Images.xcassets */; };
 		3A2E3030181A516900A85FF0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2E302F181A516900A85FF0 /* XCTest.framework */; };
@@ -23,6 +20,9 @@
 		3A2E3032181A516900A85FF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2E300E181A516900A85FF0 /* UIKit.framework */; };
 		3A2E303A181A516900A85FF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3038181A516900A85FF0 /* InfoPlist.strings */; };
 		3A2E303C181A516900A85FF0 /* dattingGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E303B181A516900A85FF0 /* dattingGameTests.m */; };
+		3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3046181A52B500A85FF0 /* UserProfileViewController.m */; };
+		3A2E3049181A531200A85FF0 /* IMG_0855.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3048181A531200A85FF0 /* IMG_0855.JPG */; };
+		3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E304B181A585B00A85FF0 /* tableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +46,6 @@
 		3A2E3018181A516900A85FF0 /* dattingGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dattingGame-Prefix.pch"; sourceTree = "<group>"; };
 		3A2E3019181A516900A85FF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A2E301A181A516900A85FF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A2E301C181A516900A85FF0 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		3A2E301D181A516900A85FF0 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		3A2E301F181A516900A85FF0 /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		3A2E3020181A516900A85FF0 /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		3A2E3022181A516900A85FF0 /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		3A2E3023181A516900A85FF0 /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 		3A2E3026181A516900A85FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A2E3028181A516900A85FF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A2E302E181A516900A85FF0 /* dattingGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dattingGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +53,11 @@
 		3A2E3037181A516900A85FF0 /* dattingGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dattingGameTests-Info.plist"; sourceTree = "<group>"; };
 		3A2E3039181A516900A85FF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A2E303B181A516900A85FF0 /* dattingGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dattingGameTests.m; sourceTree = "<group>"; };
+		3A2E3045181A52B500A85FF0 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		3A2E3046181A52B500A85FF0 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		3A2E3048181A531200A85FF0 /* IMG_0855.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0855.JPG; sourceTree = "<group>"; };
+		3A2E304A181A585B00A85FF0 /* tableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableCell.h; sourceTree = "<group>"; };
+		3A2E304B181A585B00A85FF0 /* tableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,13 +119,8 @@
 			children = (
 				3A2E3019181A516900A85FF0 /* AppDelegate.h */,
 				3A2E301A181A516900A85FF0 /* AppDelegate.m */,
-				3A2E301C181A516900A85FF0 /* RootViewController.h */,
-				3A2E301D181A516900A85FF0 /* RootViewController.m */,
-				3A2E301F181A516900A85FF0 /* DataViewController.h */,
-				3A2E3020181A516900A85FF0 /* DataViewController.m */,
-				3A2E3022181A516900A85FF0 /* ModelController.h */,
-				3A2E3023181A516900A85FF0 /* ModelController.m */,
 				3A2E3025181A516900A85FF0 /* Main.storyboard */,
+				3A2E304E181A586E00A85FF0 /* UserProfile */,
 				3A2E3028181A516900A85FF0 /* Images.xcassets */,
 				3A2E3011181A516900A85FF0 /* Supporting Files */,
 			);
@@ -136,6 +130,7 @@
 		3A2E3011181A516900A85FF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A2E3048181A531200A85FF0 /* IMG_0855.JPG */,
 				3A2E3012181A516900A85FF0 /* dattingGame-Info.plist */,
 				3A2E3013181A516900A85FF0 /* InfoPlist.strings */,
 				3A2E3016181A516900A85FF0 /* main.m */,
@@ -160,6 +155,25 @@
 				3A2E3038181A516900A85FF0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A2E304D181A585F00A85FF0 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A2E304A181A585B00A85FF0 /* tableCell.h */,
+				3A2E304B181A585B00A85FF0 /* tableCell.m */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		3A2E304E181A586E00A85FF0 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3A2E3045181A52B500A85FF0 /* UserProfileViewController.h */,
+				3A2E3046181A52B500A85FF0 /* UserProfileViewController.m */,
+				3A2E304D181A585F00A85FF0 /* CustomCell */,
+			);
+			name = UserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2E3029181A516900A85FF0 /* Images.xcassets in Resources */,
+				3A2E3049181A531200A85FF0 /* IMG_0855.JPG in Resources */,
 				3A2E3015181A516900A85FF0 /* InfoPlist.strings in Resources */,
 				3A2E3027181A516900A85FF0 /* Main.storyboard in Resources */,
 			);
@@ -259,11 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2E3021181A516900A85FF0 /* DataViewController.m in Sources */,
+				3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */,
 				3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */,
-				3A2E3024181A516900A85FF0 /* ModelController.m in Sources */,
+				3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */,
 				3A2E3017181A516900A85FF0 /* main.m in Sources */,
-				3A2E301E181A516900A85FF0 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dattingGame/dattingGame-Prefix.pch";
 				INFOPLIST_FILE = "dattingGame/dattingGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,6 +421,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dattingGame/dattingGame-Prefix.pch";
 				INFOPLIST_FILE = "dattingGame/dattingGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
