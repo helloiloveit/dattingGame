@@ -23,6 +23,11 @@
 		3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3046181A52B500A85FF0 /* UserProfileViewController.m */; };
 		3A2E3049181A531200A85FF0 /* IMG_0855.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3048181A531200A85FF0 /* IMG_0855.JPG */; };
 		3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E304B181A585B00A85FF0 /* tableCell.m */; };
+		3A2E3056181E4E4B00A85FF0 /* ImageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */; };
+		3A2E3059181E4F2E00A85FF0 /* PlayingFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */; };
+		3A2E305D181E616900A85FF0 /* alex_mac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305C181E616900A85FF0 /* alex_mac.jpg */; };
+		3A2E305F181E640700A85FF0 /* me.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305E181E640700A85FF0 /* me.JPG */; };
+		3A2E3061181E66B800A85FF0 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3060181E66B800A85FF0 /* yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,13 @@
 		3A2E3048181A531200A85FF0 /* IMG_0855.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0855.JPG; sourceTree = "<group>"; };
 		3A2E304A181A585B00A85FF0 /* tableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableCell.h; sourceTree = "<group>"; };
 		3A2E304B181A585B00A85FF0 /* tableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableCell.m; sourceTree = "<group>"; };
+		3A2E3054181E4E4B00A85FF0 /* ImageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHandler.h; sourceTree = "<group>"; };
+		3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHandler.m; sourceTree = "<group>"; };
+		3A2E3057181E4F2E00A85FF0 /* PlayingFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingFirstViewController.h; sourceTree = "<group>"; };
+		3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingFirstViewController.m; sourceTree = "<group>"; };
+		3A2E305C181E616900A85FF0 /* alex_mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alex_mac.jpg; sourceTree = "<group>"; };
+		3A2E305E181E640700A85FF0 /* me.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.JPG; sourceTree = "<group>"; };
+		3A2E3060181E66B800A85FF0 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +132,9 @@
 				3A2E3019181A516900A85FF0 /* AppDelegate.h */,
 				3A2E301A181A516900A85FF0 /* AppDelegate.m */,
 				3A2E3025181A516900A85FF0 /* Main.storyboard */,
+				3A2E305A181E4F4000A85FF0 /* PlayingFirstView */,
 				3A2E304E181A586E00A85FF0 /* UserProfile */,
+				3A2E305B181E4F4C00A85FF0 /* Utility */,
 				3A2E3028181A516900A85FF0 /* Images.xcassets */,
 				3A2E3011181A516900A85FF0 /* Supporting Files */,
 			);
@@ -130,6 +144,9 @@
 		3A2E3011181A516900A85FF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A2E3060181E66B800A85FF0 /* yellow.png */,
+				3A2E305E181E640700A85FF0 /* me.JPG */,
+				3A2E305C181E616900A85FF0 /* alex_mac.jpg */,
 				3A2E3048181A531200A85FF0 /* IMG_0855.JPG */,
 				3A2E3012181A516900A85FF0 /* dattingGame-Info.plist */,
 				3A2E3013181A516900A85FF0 /* InfoPlist.strings */,
@@ -174,6 +191,24 @@
 				3A2E304D181A585F00A85FF0 /* CustomCell */,
 			);
 			name = UserProfile;
+			sourceTree = "<group>";
+		};
+		3A2E305A181E4F4000A85FF0 /* PlayingFirstView */ = {
+			isa = PBXGroup;
+			children = (
+				3A2E3057181E4F2E00A85FF0 /* PlayingFirstViewController.h */,
+				3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */,
+			);
+			name = PlayingFirstView;
+			sourceTree = "<group>";
+		};
+		3A2E305B181E4F4C00A85FF0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3A2E3054181E4E4B00A85FF0 /* ImageHandler.h */,
+				3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,10 +287,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2E305D181E616900A85FF0 /* alex_mac.jpg in Resources */,
+				3A2E305F181E640700A85FF0 /* me.JPG in Resources */,
 				3A2E3029181A516900A85FF0 /* Images.xcassets in Resources */,
 				3A2E3049181A531200A85FF0 /* IMG_0855.JPG in Resources */,
 				3A2E3015181A516900A85FF0 /* InfoPlist.strings in Resources */,
 				3A2E3027181A516900A85FF0 /* Main.storyboard in Resources */,
+				3A2E3061181E66B800A85FF0 /* yellow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +312,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2E3056181E4E4B00A85FF0 /* ImageHandler.m in Sources */,
 				3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */,
 				3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */,
 				3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */,
+				3A2E3059181E4F2E00A85FF0 /* PlayingFirstViewController.m in Sources */,
 				3A2E3017181A516900A85FF0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -393,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -407,8 +447,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dattingGame/dattingGame-Prefix.pch";
 				INFOPLIST_FILE = "dattingGame/dattingGame-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -421,8 +462,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dattingGame/dattingGame-Prefix.pch";
 				INFOPLIST_FILE = "dattingGame/dattingGame-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

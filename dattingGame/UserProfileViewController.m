@@ -8,7 +8,7 @@
 
 #import "UserProfileViewController.h"
 #import "tableCell.h"
-#import <QuartzCore/QuartzCore.h>
+
 
 @interface UserProfileViewController ()
 
@@ -16,14 +16,11 @@
 
 @implementation UserProfileViewController
 
--(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
-{
-    CGPoint saveCenter = roundedView.center;
-    CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
-    roundedView.frame = newFrame;
-    roundedView.layer.cornerRadius = newSize / 2.0;
-    roundedView.center = saveCenter;
-}
+
+
+
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 6;
@@ -40,15 +37,13 @@
     if (cell == nil) {
         cell = [[tableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-//    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IMG_0855.JPG"]];
-  //  [cell addSubview: avatarView];
+
 
     switch (indexPath.row) {
         case 0:{
             NSLog(@"sdfdf");
-            UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IMG_0855.JPG"]];
-
-            [self setRoundedView:avatarView toDiameter:10.0];
+            UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.JPG"]];
+            [ImageHandler setRoundedView:avatarView toDiameter:300 atCell:cell];
             [cell addSubview: avatarView];
             
         };
@@ -56,8 +51,22 @@
         case 1:
             {
             NSLog(@"2");
-                cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-                cell.answer.text  = @"Co gang tro thanh designer";
+
+                NSString *string = @"Be sure you put your feet in the right place, then stand firm";
+              //  CGSize stringSize = [string sizeWithFont:[UIFont boldSystemFontOfSize:15] constrainedToSize:CGSizeMake(320, 9999) lineBreakMode:UILineBreakModeWordWrap];
+                
+            //    UITextView *textV=[[UITextView alloc] initWithFrame:CGRectMake(5, 5, 290, stringSize.height+10)];
+                UITextView *textV = [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 290, 50)];
+                textV.font = [UIFont systemFontOfSize:15.0];
+                textV.text=string;
+                textV.textColor=[UIColor blackColor];
+                textV.editable=NO;
+                [cell.contentView addSubview:textV];
+                
+                cell.question.hidden = YES;
+                cell.answer.hidden = YES;
+
+
             };
             break;
         case 2:
@@ -103,15 +112,36 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        return 200;
+        return 300;
     }
     return 80;
 }
-
+-(UIImage *)makeRoundedImage:(UIImage *) image
+                      radius: (float) radius;
+{
+    CALayer *imageLayer = [CALayer layer];
+    imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    imageLayer.contents = (id) image.CGImage;
+    
+    imageLayer.masksToBounds = YES;
+    imageLayer.cornerRadius = radius;
+    
+    UIGraphicsBeginImageContext(image.size);
+    [imageLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return roundedImage;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"yellow.png" ] forBarMetrics:UIBarMetricsDefault];
+    
+   // [self setRoundedView:avatarView toDiameter:10.0];
+
+
 	// Do any additional setup after loading the view.
 }
 
@@ -119,6 +149,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+/*
+- (void) editButtonSelected: (id) sender
+{
+        UITableView *tableView = [self.view.subviews firstObject];
+    if (tableView.editing) {
+        self.navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonSelected:)] ;
+        [tableView setEditing:NO animated:YES];
+    } else {
+        self.navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editButtonSelected:)] ;
+        [tableView setEditing:YES animated:YES];
+        
+    }
+    
+}*/
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"display subview = %@", self.view.subviews);
+    UITableView *tableView = [self.view.subviews firstObject];
+    [tableView setEditing: YES animated: YES];
+ //   self.navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonSelected:)] ;
 }
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageHandler.h"
 
 @interface UserProfileViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end
