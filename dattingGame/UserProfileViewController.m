@@ -23,7 +23,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 2;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -166,9 +166,9 @@
 }*/
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"display subview = %@", self.view.subviews);
-    UITableView *tableView = [self.view.subviews firstObject];
-    [tableView setEditing: YES animated: YES];
+ //   NSLog(@"display subview = %@", self.view.subviews);
+ //   UITableView *tableView = [self.view.subviews firstObject];
+//    [tableView setEditing: YES animated: YES];
  //   self.navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonSelected:)] ;
 }
 
