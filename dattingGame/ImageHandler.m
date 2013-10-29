@@ -30,4 +30,14 @@
     CGPoint centerValue = CGPointMake(cell.frame.size.width/2, newSize/2);
     avatarView.center = centerValue;
 }
+
++ (void)setRoundedAvatarInPlayingWindowAtFirstView:(UIImageView *)avatarView toDiameter:(float)newSize atCell:(UIView *)cell;
+{
+    avatarView.layer.cornerRadius = newSize/2;
+    avatarView.clipsToBounds = YES;
+    // cant get cell.frame.size.height here . because it is not the correct return number  exp: 300
+    avatarView.frame = CGRectMake(0, 0, newSize, newSize);
+    CGPoint centerValue = CGPointMake(cell.frame.size.width/2, newSize/2 + 50);
+    avatarView.center = centerValue;
+}
 @end

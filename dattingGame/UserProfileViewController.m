@@ -11,7 +11,7 @@
 
 
 @interface UserProfileViewController ()
-
+@property (strong, nonatomic) UIImageView *avatarPointer;
 @end
 
 @implementation UserProfileViewController
@@ -19,124 +19,134 @@
 
 
 
+-(void)moveUp
+{
 
+    
+    //NSLog(@"list subview of view = %@", self.view.subviews);
+    NSLog(@"position of firstView x = %f", self.firstTextView.frame.origin.x);
+    NSLog(@"position of firstView y = %f", self.firstTextView.frame.origin.y);
+    NSLog(@"position of secondV x = %f", self.secondTextView.frame.origin.x);
+    NSLog(@"position of secondV y = %f", self.secondTextView.frame.origin.y);
+    [UIView animateWithDuration:1.5
+                          delay:0
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         self.firstTextView.hidden = NO;
+                         self.secondTextView.hidden = NO;
+                    //     self.firstHeaderTextView.hidden = NO;
+                    //     self.secondHeaderTextView.hidden = NO;
+                         if (self.firstTextView.frame.origin.y == 350) {
+                             //first time swipe  firsttext view doesnt have header and at 400
+                             [self.avatarPointer setFrame:CGRectMake(0,  -600 , self.avatarPointer.frame.size.width, self.avatarPointer.frame.size.height)];
+                             [self.firstTextView setFrame:CGRectMake(0,  -100   , self.view.frame.size.width, self.view.frame.size.height)];
+                          //   [self.secondHeaderTextView setFrame:CGRectMake(0,  100   , 300, 300)];
+                            [self.secondTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                         } else if (self.firstTextView.frame.origin.y == 300) {
+                            // [self.firstHeaderTextView setFrame:CGRectMake(0,  -100   , 300, 300)];
 
+                             [self.firstTextView setFrame:CGRectMake(0,  -100   , self.view.frame.size.width, self.view.frame.size.height)];
+                              //[self.secondHeaderTextView setFrame:CGRectMake(0,  100   , 300, 300)];
+                             [self.secondTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                         } else {
+                             //[self.firstHeaderTextView setFrame:CGRectMake(0,  200   , 300, 300)];
+                             [self.firstTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                           //  [self.secondHeaderTextView setFrame:CGRectMake(0,  -100   , 300, 300)];
+                           //  [self.secondTextView setFrame:CGRectMake(0,  -100   , self.view.frame.size.width, self.view.frame.size.height)];
+                         }
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                         if (self.firstTextView.frame.origin.y == -100) {
+                             NSLog(@"first");
+                             self.firstTextView.hidden = YES;
+                             self.firstHeaderTextView.hidden = YES;
+                             self.avatarPointer.hidden = YES;
+                             //[self.firstHeaderTextView setFrame:CGRectMake(0,  800   , 300, 300)];
+                             [self.firstTextView setFrame:CGRectMake(0,  800   , self.view.frame.size.width, self.view.frame.size.height)];
+                              //[self.secondHeaderTextView setFrame:CGRectMake(0,  100   , 300, 300)];
+                             [self.secondTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+                         } else {
+                             NSLog(@"second");
+
+                             self.secondTextView.hidden = YES;
+                             self.secondHeaderTextView.hidden = YES;
+                             //[self.firstHeaderTextView setFrame:CGRectMake(0,  100   , 300, 300)];
+                             [self.firstTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                              //[self.secondHeaderTextView setFrame:CGRectMake(0,  800   , 300, 300)];
+                             [self.secondTextView setFrame:CGRectMake(0,  800   , self.view.frame.size.width, self.view.frame.size.height)];
+                         }
+                     }];
+    
+
 }
 
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (tableCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"cellforrowatindexPath");
-    static NSString *CellIdentifier = @"Cell";
+
+- (void)swipeDetected:(UISwipeGestureRecognizer *)gesture
+{
     
-    tableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[tableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-
-
-    switch (indexPath.row) {
-        case 0:{
-            NSLog(@"sdfdf");
-            UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.JPG"]];
-            [ImageHandler setRoundedView:avatarView toDiameter:300 atCell:cell];
-            [cell addSubview: avatarView];
-            
-        };
+    NSLog(@"swipe");
+  //  [self moveOldView];
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            // you can include this case too
+             [self moveUp];
             break;
-        case 1:
-            {
-            NSLog(@"2");
+        case UISwipeGestureRecognizerDirectionDown:
+            // you can include this case too
+            NSLog(@"down");
 
-                NSString *string = @"Be sure you put your feet in the right place, then stand firm";
-              //  CGSize stringSize = [string sizeWithFont:[UIFont boldSystemFontOfSize:15] constrainedToSize:CGSizeMake(320, 9999) lineBreakMode:UILineBreakModeWordWrap];
-                
-            //    UITextView *textV=[[UITextView alloc] initWithFrame:CGRectMake(5, 5, 290, stringSize.height+10)];
-                UITextView *textV = [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 290, 50)];
-                textV.font = [UIFont systemFontOfSize:15.0];
-                textV.text=string;
-                textV.textColor=[UIColor blackColor];
-                textV.editable=NO;
-                [cell.contentView addSubview:textV];
-                
-                cell.question.hidden = YES;
-                cell.answer.hidden = YES;
-
-
-            };
             break;
-        case 2:
-        {
-            NSLog(@"2");
-            cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-            cell.answer.text  = @"Co gang tro thanh designer";
-        };
-            break;
-        case 3:
-        {
-            NSLog(@"2");
-            cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-            cell.answer.text  = @"Co gang tro thanh designer";
-        };
-            break;
-        case 4:
-        {
-            NSLog(@"2");
-            cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-            cell.answer.text  = @"Co gang tro thanh designer";
-        };
-            break;
-        case 5:
-        {
-            cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-            cell.answer.text  = @"Co gang tro thanh designer";
-        };
+        case UISwipeGestureRecognizerDirectionLeft:
+        case UISwipeGestureRecognizerDirectionRight:
+            // disable timer for both left and right swipes.
             break;
         default:
-        {
-            cell.question.text  = @"Ban dang lam gi voi cuoc song cua ban";
-            cell.answer.text  = @"Co gang tro thanh designer";
-        }
             break;
     }
-    
-    return cell;
 }
-
-
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        return 300;
-    }
-    return 80;
-}
--(UIImage *)makeRoundedImage:(UIImage *) image
-                      radius: (float) radius;
+-(void)initSwipe
 {
-    CALayer *imageLayer = [CALayer layer];
-    imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    imageLayer.contents = (id) image.CGImage;
+    /*
+     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeScreen:)];
+     swipe.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+     [self.view addGestureRecognizer:swipe];
+     */
+    UISwipeGestureRecognizer *swipeRecognizer =
+    [[UISwipeGestureRecognizer alloc]
+     initWithTarget:self
+     action:@selector(swipeDetected:)];
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeRecognizer];
     
-    imageLayer.masksToBounds = YES;
-    imageLayer.cornerRadius = radius;
-    
-    UIGraphicsBeginImageContext(image.size);
-    [imageLayer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *roundedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return roundedImage;
+    UISwipeGestureRecognizer *swipeRecognizerDown =
+    [[UISwipeGestureRecognizer alloc]
+     initWithTarget:self
+     action:@selector(swipeDetected:)];
+    swipeRecognizerDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeRecognizerDown];
 }
+
+- (void) initUserAvatar
+{
+    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IMG_0855.JPG"]];
+    [ImageHandler setRoundedAvatarInPlayingWindowAtFirstView:avatarView toDiameter:300 atCell:self.view];
+    [self.view addSubview: avatarView];
+    self.avatarPointer = avatarView;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initUserAvatar];
+    [self initSwipe];
+    
+
+    
+    
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"yellow.png" ] forBarMetrics:UIBarMetricsDefault];
     
    // [self setRoundedView:avatarView toDiameter:10.0];
