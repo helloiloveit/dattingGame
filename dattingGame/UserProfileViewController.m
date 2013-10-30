@@ -40,10 +40,10 @@
                          if (self.firstTextView.frame.origin.y == ABOUT_ME_TEXT_POSITION) {
                              self.avatarPointer.alpha = 0;
                              self.firstTextView.alpha = 0;
+                             [self.firstTextView setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
+                             [self.avatarPointer setFrame:CGRectMake(0,  -600   , self.avatarPointer.frame.size.width, self.avatarPointer.frame.size.height)];
                          }
                          else if (self.firstTextView.frame.origin.y == CONTENT_TEXT_POSITION) {
-                            // [self.firstHeaderTextView setFrame:CGRectMake(0,  -100   , 300, 300)];
-                         //   [self.avatarPointer setFrame:CGRectMake(0,  -600   , self.avatarPointer.frame.size.width, self.avatarPointer.frame.size.height)];
                             NSLog(@"move first view");
                              [self.firstHeaderTextView setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
                              [self.firstTextView setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
@@ -60,7 +60,7 @@
                                                delay:0
                                              options: UIViewAnimationCurveEaseOut
                                           animations:^{
-                                              if ((self.firstTextView.frame.origin.y == -100) || (self.firstTextView.frame.origin.y == ABOUT_ME_TEXT_POSITION)) {
+                                              if ((self.firstTextView.frame.origin.y == -100)) {
                                                   NSLog(@"second view comming");
                                                   
                                                   [self.secondTextView setFrame:CGRectMake(0,  CONTENT_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
@@ -76,7 +76,7 @@
                                           completion:^(BOOL finished){
                                               NSLog(@"Done!");
 
-                                              if ((self.firstTextView.frame.origin.y == -100)|| (self.firstTextView.frame.origin.y == ABOUT_ME_TEXT_POSITION)) {
+                                              if ((self.firstTextView.frame.origin.y == -100)) {
                                                   NSLog(@"first");
                                                   //self.firstTextView.hidden = YES;
                                                   self.firstTextView.alpha = 1;
