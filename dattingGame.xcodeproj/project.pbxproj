@@ -70,6 +70,7 @@
 		3A2E305C181E616900A85FF0 /* alex_mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alex_mac.jpg; sourceTree = "<group>"; };
 		3A2E305E181E640700A85FF0 /* me.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.JPG; sourceTree = "<group>"; };
 		3A2E3060181E66B800A85FF0 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +206,7 @@
 		3A2E305B181E4F4C00A85FF0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */,
 				3A2E3054181E4E4B00A85FF0 /* ImageHandler.h */,
 				3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */,
 			);
@@ -530,6 +532,7 @@
 				3A2E3041181A516900A85FF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A2E3042181A516900A85FF0 /* Build configuration list for PBXNativeTarget "dattingGameTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +541,7 @@
 				3A2E3044181A516900A85FF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

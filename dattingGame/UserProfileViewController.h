@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ImageHandler.h"
 
-@interface UserProfileViewController : UIViewController
+@interface UserProfileViewController : UIViewController <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UITextView *firstTextView;
 @property (weak, nonatomic) IBOutlet UITextView *secondTextView;
 @property (weak, nonatomic) IBOutlet UITextView *secondHeaderTextView;
 @property (weak, nonatomic) IBOutlet UITextView *firstHeaderTextView;
+- (IBAction)playSettingButton:(id)sender;
+- (IBAction)editButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
 
 @end

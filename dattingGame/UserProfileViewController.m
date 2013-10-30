@@ -8,7 +8,7 @@
 
 #import "UserProfileViewController.h"
 #import "tableCell.h"
-
+#import "ConstantDefinition.h"
 
 @interface UserProfileViewController ()
 @property (strong, nonatomic) UIImageView *avatarPointer;
@@ -143,7 +143,7 @@
         case UISwipeGestureRecognizerDirectionDown:
             // you can include this case too
             NSLog(@"down");
-
+                [self.firstTextView resignFirstResponder];
             break;
         case UISwipeGestureRecognizerDirectionLeft:
         case UISwipeGestureRecognizerDirectionRight:
@@ -184,14 +184,24 @@
 }
 
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    DebugLog(@"begin edit");
+    return TRUE;
+}
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    DebugLog(@"end edit");
+    return TRUE;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initUserAvatar];
     [self initSwipe];
     
-
-    
+    [self setEditable:NO];
+    self.firstTextView.delegate = self;
+    self.secondTextView.delegate = self;
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"yellow.png" ] forBarMetrics:UIBarMetricsDefault];
     
@@ -224,8 +234,41 @@
 {
  //   NSLog(@"display subview = %@", self.view.subviews);
  //   UITableView *tableView = [self.view.subviews firstObject];
-//    [tableView setEditing: YES animated: YES];
+ //    [tableView setEditing: YES animated: YES];
  //   self.navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonSelected:)] ;
 }
 
+- (IBAction)playSettingButton:(id)sender {
+    NSLog(@"editPlayButton");
+    NSString *buttonName = [sender titleForState:UIControlStateNormal];
+    if ([buttonName isEqualToString: @"Play"]) {
+
+        // do something
+        // lets play
+    } else if ([buttonName isEqualToString: @"Setting"]) {
+        // lets do setting
+    }
+}
+
+-(void) setEditable: (BOOL) option{
+    self.firstTextView.editable = option;
+    self.secondTextView.editable = option;
+    self.firstHeaderTextView.editable = option;
+    self.secondHeaderTextView.editable = option;
+}
+
+- (IBAction)editButton:(id)sender {
+
+    NSString *buttonName = [sender titleForState:UIControlStateNormal];
+    if ([buttonName isEqualToString: @"Edit"]) {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self setEditable:YES];
+    //    self.playButton.title = @"Setting";
+
+    } else if ([buttonName isEqualToString: @"Done"]) {
+     [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self setEditable:NO];
+        self.playButton.title = @"Play";
+    }
+}
 @end
