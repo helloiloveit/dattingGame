@@ -242,7 +242,7 @@
     NSLog(@"editPlayButton");
     NSString *buttonName = [sender titleForState:UIControlStateNormal];
     if ([buttonName isEqualToString: @"Play"]) {
-
+         [self performSegueWithIdentifier:     @"go_to_play" sender: NULL];
         // do something
         // lets play
     } else if ([buttonName isEqualToString: @"Setting"]) {
