@@ -17,8 +17,8 @@
 @implementation UserProfileViewController
 
 
-
-
+#define TEXT_HEIGHT 300
+#define TEXT_WIDTH  self.view.frame.size.width
 -(void)moveUp
 {
 
@@ -34,46 +34,56 @@
                      animations:^{
                          self.firstTextView.hidden = NO;
                          self.secondTextView.hidden = NO;
-                         self.firstHeaderTextView.hidden = NO;
-                         self.secondHeaderTextView.hidden = NO;
-                        if (self.firstTextView.frame.origin.y == 300) {
+
+                        if (self.firstTextView.frame.origin.y == 150) {
                             // [self.firstHeaderTextView setFrame:CGRectMake(0,  -100   , 300, 300)];
                             self.avatarPointer.hidden = YES;
                             NSLog(@"move first view");
-                             [self.firstTextView setFrame:CGRectMake(0,  -100   , self.view.frame.size.width, self.view.frame.size.height)];
+                             [self.firstTextView setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
 
                          } else {
                              NSLog(@" move second view");
-                             [self.secondTextView setFrame:CGRectMake(0,  -100   , self.view.frame.size.width, self.view.frame.size.height)];
+                             [self.secondTextView setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
                          }
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
-                         NSLog(@"position of firstView x = %f", self.firstTextView.frame.origin.x);
-                         NSLog(@"position of firstView y = %f", self.firstTextView.frame.origin.y);
-                         NSLog(@"position of secondV x = %f", self.secondTextView.frame.origin.x);
-                         NSLog(@"position of secondV y = %f", self.secondTextView.frame.origin.y);
+                         NSLog(@"Done!");
+
+
                          [UIView animateWithDuration:1.5
                                                delay:0
                                              options: UIViewAnimationCurveEaseOut
                                           animations:^{
                                               if (self.firstTextView.frame.origin.y == -100){
                                                   NSLog(@"second view comming");
-                                                [self.secondTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  NSLog(@"position of firstView x = %f", self.firstTextView.frame.origin.x);
+                                                  NSLog(@"position of firstView y = %f", self.firstTextView.frame.origin.y);
+                                                  NSLog(@"position of secondV x = %f", self.secondTextView.frame.origin.x);
+                                                  NSLog(@"position of secondV y = %f", self.secondTextView.frame.origin.y);
+                                                [self.secondTextView setFrame:CGRectMake(0,  150   , TEXT_WIDTH, TEXT_HEIGHT)];
                                               } else if (self.secondTextView.frame.origin.y == -100) {
                                                   NSLog(@"first view comming");
-                                                  [self.firstTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  NSLog(@"position of firstView x = %f", self.firstTextView.frame.origin.x);
+                                                  NSLog(@"position of firstView y = %f", self.firstTextView.frame.origin.y);
+                                                  NSLog(@"position of secondV x = %f", self.secondTextView.frame.origin.x);
+                                                  NSLog(@"position of secondV y = %f", self.secondTextView.frame.origin.y);
+                                                  [self.firstTextView setFrame:CGRectMake(0,  150   , TEXT_WIDTH, TEXT_HEIGHT)];
                                               }
                                           }
                                           completion:^(BOOL finished){
                                               NSLog(@"Done!");
+                                              NSLog(@"position of firstView x = %f", self.firstTextView.frame.origin.x);
+                                              NSLog(@"position of firstView y = %f", self.firstTextView.frame.origin.y);
+                                              NSLog(@"position of secondV x = %f", self.secondTextView.frame.origin.x);
+                                              NSLog(@"position of secondV y = %f", self.secondTextView.frame.origin.y);
                                               if (self.firstTextView.frame.origin.y == -100) {
                                                   NSLog(@"first");
                                                   //self.firstTextView.hidden = YES;
                    
-                                                  [self.firstTextView setFrame:CGRectMake(0,  800   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  [self.firstTextView setFrame:CGRectMake(0,  800   , TEXT_WIDTH, TEXT_HEIGHT)];
           
-                                                  [self.secondTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  [self.secondTextView setFrame:CGRectMake(0,  150   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                  // self.firstTextView.hidden = NO;
                                                   
                                               } else {
@@ -82,9 +92,9 @@
                                                //   self.secondTextView.hidden = YES;
                                       
                                 
-                                                  [self.firstTextView setFrame:CGRectMake(0,  300   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  [self.firstTextView setFrame:CGRectMake(0,  150   , TEXT_WIDTH, TEXT_HEIGHT)];
                                    
-                                                  [self.secondTextView setFrame:CGRectMake(0,  800   , self.view.frame.size.width, self.view.frame.size.height)];
+                                                  [self.secondTextView setFrame:CGRectMake(0,  800   , TEXT_WIDTH,TEXT_HEIGHT)];
                                                  //   self.secondTextView.hidden = NO;
                                               }
   
@@ -174,7 +184,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initUserAvatar];
+  //  [self initUserAvatar];
     [self initSwipe];
     
 
