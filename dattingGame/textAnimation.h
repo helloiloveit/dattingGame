@@ -11,11 +11,14 @@
 @interface textAnimation : NSObject
 
 
-
++ (void) updateFlyingTextInfo: (NSMutableDictionary *)dataDic
+      textPointer            :  (UITextView *)textInfo;
 
 +(void)animateTwoText: (UITextView *)firstText
      andHeaderText: (UITextView *)firstHeaderText
      withOtherText: (UITextView *)secondText
     withHeaderText: (UITextView *)secondHeaderText
-     withAvatarImg: (UIImageView *)avatarPointer;
+     withAvatarImg: (UIImageView *)avatarPointer
+             withData:(NSMutableDictionary *)data;
+
 @end

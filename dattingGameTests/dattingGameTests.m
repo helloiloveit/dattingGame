@@ -17,6 +17,14 @@
 - (void)setUp
 {
     [super setUp];
+    NSInteger position = 0;
+    NSArray *infoArray = @[@"info1",@"info2",@"info3"];
+    
+    
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:position], @"position",
+                                 infoArray, @"contentArray",
+                                 nil];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -26,8 +34,11 @@
     [super tearDown];
 }
 
+
 - (void)testExample
 {
+    
+
     XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 

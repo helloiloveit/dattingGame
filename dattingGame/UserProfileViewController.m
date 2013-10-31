@@ -14,22 +14,37 @@
 
 @interface UserProfileViewController ()
 @property (strong, nonatomic) UIImageView *avatarPointer;
+@property (strong, nonatomic) NSMutableDictionary *profileInfo;
+
 @end
 
 @implementation UserProfileViewController
 
-
+-(NSMutableDictionary *)returnTestValue
+{
+    NSInteger position = 0;
+    NSArray *infoArray = @[@"info1",@"info2",@"info3", @"info4",@"info5"];
+    
+    
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:position], @"position",
+                                 infoArray, @"contentArray",
+                                 nil];
+    return data;
+}
 
 - (void)swipeDetected:(UISwipeGestureRecognizer *)gesture
 {
     
     NSLog(@"swipe");
   //  [self moveOldView];
+
     switch (gesture.direction) {
         case UISwipeGestureRecognizerDirectionUp:
             // you can include this case too
            //  [self moveUp];
-            [textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer];
+
+            [textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ];
             break;
         case UISwipeGestureRecognizerDirectionDown:
             // you can include this case too
@@ -91,6 +106,10 @@
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"yellow.png" ] forBarMetrics:UIBarMetricsDefault];
     
+    self.profileInfo  = [self returnTestValue];
+    
+    [textAnimation updateFlyingTextInfo:self.profileInfo textPointer:self.firstTextView ];
+    [textAnimation updateFlyingTextInfo:self.profileInfo textPointer:self.secondTextView ];
    // [self setRoundedView:avatarView toDiameter:10.0];
 
 
