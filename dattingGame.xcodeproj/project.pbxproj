@@ -151,6 +151,8 @@
 		3A2E3011181A516900A85FF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A2E3057181E4F2E00A85FF0 /* PlayingFirstViewController.h */,
+				3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */,
 				3A2E3060181E66B800A85FF0 /* yellow.png */,
 				3A2E305E181E640700A85FF0 /* me.JPG */,
 				3A2E305C181E616900A85FF0 /* alex_mac.jpg */,
@@ -205,8 +207,6 @@
 			children = (
 				3AD69C381822458D0047C566 /* PlayingWindowViewController.h */,
 				3AD69C391822458D0047C566 /* PlayingWindowViewController.m */,
-				3A2E3057181E4F2E00A85FF0 /* PlayingFirstViewController.h */,
-				3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */,
 			);
 			name = PlayingFirstView;
 			sourceTree = "<group>";
