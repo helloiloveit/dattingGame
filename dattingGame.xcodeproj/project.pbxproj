@@ -28,6 +28,7 @@
 		3A2E305D181E616900A85FF0 /* alex_mac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305C181E616900A85FF0 /* alex_mac.jpg */; };
 		3A2E305F181E640700A85FF0 /* me.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305E181E640700A85FF0 /* me.JPG */; };
 		3A2E3061181E66B800A85FF0 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3060181E66B800A85FF0 /* yellow.png */; };
+		3AD69C371821FBDF0047C566 /* textAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C361821FBDF0047C566 /* textAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		3A2E305C181E616900A85FF0 /* alex_mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alex_mac.jpg; sourceTree = "<group>"; };
 		3A2E305E181E640700A85FF0 /* me.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.JPG; sourceTree = "<group>"; };
 		3A2E3060181E66B800A85FF0 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		3AD69C351821FBDF0047C566 /* textAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textAnimation.h; sourceTree = "<group>"; };
+		3AD69C361821FBDF0047C566 /* textAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textAnimation.m; sourceTree = "<group>"; };
 		3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +209,8 @@
 		3A2E305B181E4F4C00A85FF0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3AD69C351821FBDF0047C566 /* textAnimation.h */,
+				3AD69C361821FBDF0047C566 /* textAnimation.m */,
 				3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */,
 				3A2E3054181E4E4B00A85FF0 /* ImageHandler.h */,
 				3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */,
@@ -320,6 +325,7 @@
 				3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */,
 				3A2E3059181E4F2E00A85FF0 /* PlayingFirstViewController.m in Sources */,
 				3A2E3017181A516900A85FF0 /* main.m in Sources */,
+				3AD69C371821FBDF0047C566 /* textAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

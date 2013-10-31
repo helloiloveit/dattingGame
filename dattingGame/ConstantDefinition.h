@@ -36,4 +36,9 @@
 #define kCellHeight 50.0
 
 
+#define TEXT_HEIGHT 150
+#define TEXT_WIDTH  320
 
+#define HEADER_TEXT_POSITION  100
+#define CONTENT_TEXT_POSITION  150
+#define ABOUT_ME_TEXT_POSITION 400
