@@ -43,20 +43,18 @@
     NSInteger myInteger = [dataDic[@"position"] integerValue];
     NSArray *temp = dataDic[@"contentArray"];
     NSLog(@" info last check postion = %d count array %d", myInteger, [temp count]);
-    if (myInteger >= [temp count]  ) {
+    if (myInteger >= [temp count]  )
         return TRUE;
-    }
-    
     return FALSE;
 }
+
+
 + (BOOL) checkifFlyingTextLastTime: (NSMutableDictionary *)dataDic {
     NSInteger myInteger = [dataDic[@"position"] integerValue];
     NSArray *temp = dataDic[@"contentArray"];
     NSLog(@" info last check postion = %d count array %d", myInteger, [temp count]);
-    if (myInteger == [temp count] + 1 ) {
+    if (myInteger == [temp count] + 1 )
         return TRUE;
-    }
-    
     return FALSE;
 }
 
@@ -66,10 +64,50 @@
     NSInteger myInteger = [dataDic[@"position"] integerValue];
     NSArray *temp = dataDic[@"contentArray"];
     NSLog(@" info last check postion = %d count array %d", myInteger, [temp count]);
-    if (myInteger < [temp count] + 1 ) {
+    if (myInteger < [temp count] + 1 )
         return TRUE;
-    }
     return TRUE;
+}
+
++ (void)clearInfoText: (UITextView *)text
+{
+    
+    
+    [UIView animateWithDuration:2
+                          delay:2
+                        options: UIViewAnimationCurveEaseInOut
+                     animations:^{
+                   //      text.alpha = 0;
+                         [text setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, 44)];
+                     }
+                     completion:^(BOOL finished){
+                         [text setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, 44)];
+                         
+                     }];
+                         
+                         
+}
+
++ (void)showInfoText: (UITextView *)text
+{
+    NSLog(@"position of firstView x = %f", text.frame.origin.x);
+    NSLog(@"position of firstView y = %f", text.frame.origin.y);
+    
+    [UIView animateWithDuration:1
+                          delay:0
+                        options: UIViewAnimationCurveEaseInOut
+                     animations:^{
+                       //  text.alpha = 1;
+                         [text setFrame:CGRectMake(0,  0   , TEXT_WIDTH, 44)];
+                        // text.text = @"doi tuong thay to mo ve ban";
+                     }
+     
+                     completion:^(BOOL finished){
+                         //[text setFrame:CGRectMake(0,  44   , TEXT_WIDTH, 44)];
+                         [self clearInfoText:text];
+                     }];
+    
+    
 }
 
 +(void)animateTwoText: (UITextView *)firstText

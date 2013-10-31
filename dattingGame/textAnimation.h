@@ -22,4 +22,7 @@ textHeaderPointer              : (UITextView *)textHeaderInfo;
      withAvatarImg: (UIImageView *)avatarPointer
              withData:(NSMutableDictionary *)data;
 
+
++ (void)clearInfoText: (UITextView *)text;
++ (void)showInfoText: (UITextView *)text;
 @end

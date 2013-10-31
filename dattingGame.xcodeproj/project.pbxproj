@@ -29,6 +29,7 @@
 		3A2E305F181E640700A85FF0 /* me.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305E181E640700A85FF0 /* me.JPG */; };
 		3A2E3061181E66B800A85FF0 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3060181E66B800A85FF0 /* yellow.png */; };
 		3AD69C371821FBDF0047C566 /* textAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C361821FBDF0047C566 /* textAnimation.m */; };
+		3AD69C3A1822458D0047C566 /* PlayingWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C391822458D0047C566 /* PlayingWindowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		3A2E3060181E66B800A85FF0 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		3AD69C351821FBDF0047C566 /* textAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textAnimation.h; sourceTree = "<group>"; };
 		3AD69C361821FBDF0047C566 /* textAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textAnimation.m; sourceTree = "<group>"; };
+		3AD69C381822458D0047C566 /* PlayingWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingWindowViewController.h; sourceTree = "<group>"; };
+		3AD69C391822458D0047C566 /* PlayingWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingWindowViewController.m; sourceTree = "<group>"; };
 		3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantDefinition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +203,8 @@
 		3A2E305A181E4F4000A85FF0 /* PlayingFirstView */ = {
 			isa = PBXGroup;
 			children = (
+				3AD69C381822458D0047C566 /* PlayingWindowViewController.h */,
+				3AD69C391822458D0047C566 /* PlayingWindowViewController.m */,
 				3A2E3057181E4F2E00A85FF0 /* PlayingFirstViewController.h */,
 				3A2E3058181E4F2E00A85FF0 /* PlayingFirstViewController.m */,
 			);
@@ -322,6 +327,7 @@
 				3A2E3056181E4E4B00A85FF0 /* ImageHandler.m in Sources */,
 				3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */,
 				3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */,
+				3AD69C3A1822458D0047C566 /* PlayingWindowViewController.m in Sources */,
 				3A2E304C181A585B00A85FF0 /* tableCell.m in Sources */,
 				3A2E3059181E4F2E00A85FF0 /* PlayingFirstViewController.m in Sources */,
 				3A2E3017181A516900A85FF0 /* main.m in Sources */,

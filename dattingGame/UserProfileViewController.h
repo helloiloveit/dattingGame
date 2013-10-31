@@ -20,4 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
 
+
+@property (strong, nonatomic) UIImageView *avatarPointer;
+@property (strong, nonatomic) NSMutableDictionary *profileInfo;
 @end

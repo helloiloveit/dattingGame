@@ -13,8 +13,7 @@
 
 
 @interface UserProfileViewController ()
-@property (strong, nonatomic) UIImageView *avatarPointer;
-@property (strong, nonatomic) NSMutableDictionary *profileInfo;
+
 
 @end
 
@@ -25,12 +24,12 @@
     NSInteger position = 0;
     
     
-    NSArray *q1 = @[@"question1", @"asnwer1"];
-    NSArray *q2 = @[@"question2", @"asnwer2"];
-    NSArray *q3 = @[@"question3", @"asnwer3"];
-    NSArray *q4 = @[@"question4", @"asnwer4"];
-    NSArray *q5 = @[@"question5", @"asnwer5"];
-    NSArray *q6 = @[@"question6", @"asnwer6"];
+    NSArray *q1 = @[@"question1", @"I started to wonder, where are you among more than seven billion people in this world?. It seems really really difficult! I have asked myself same questions thousand times"];
+    NSArray *q2 = @[@"THe first things people usually notice about me", @"Young Bookish  Cute Silent"];
+    NSArray *q3 = @[@"Favorite books, movies show, music", @"seafood"];
+    NSArray *q4 = @[@"The six things i could never do without", @"Family, Friends, A Job"];
+    NSArray *q5 = @[@"Im looking for ", @"Straight guy only"];
+    NSArray *q6 = @[@"You should message me if", @"I'm a kind of person who has EQ level higher than normal, so quite sensitive. If you like my profile and wanna start a conversation, just send me a msg. In case you don't receive my reply, it's totally from me! You are cool as always ;)"];
     NSArray *infoArray = @[q1,q2,q3,q4,q5, q6];
     
     
@@ -100,6 +99,11 @@
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     DebugLog(@"end edit");
     return TRUE;
+}
+
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad
