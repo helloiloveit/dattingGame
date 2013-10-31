@@ -12,7 +12,8 @@
 
 
 + (void) updateFlyingTextInfo: (NSMutableDictionary *)dataDic
-      textPointer            :  (UITextView *)textInfo;
+textContentPointer            :  (UITextView *)textInfo
+textHeaderPointer              : (UITextView *)textHeaderInfo;
 
 +(void)animateTwoText: (UITextView *)firstText
      andHeaderText: (UITextView *)firstHeaderText

@@ -25,7 +25,8 @@
 }
 
 + (void) updateFlyingTextInfo: (NSMutableDictionary *)dataDic
-         textPointer            :  (UITextView *)textInfo
+         textContentPointer            :  (UITextView *)textInfo
+         textHeaderPointer              : (UITextView *)textHeaderInfo
 {
     if ([self checkIfLastInfoIsReached: dataDic]){
         [self updatePositionCount:dataDic ];
@@ -33,7 +34,8 @@
     }
     NSArray *temp = dataDic[@"contentArray"];
     NSInteger myInteger = [dataDic[@"position"] integerValue];
-    textInfo.text = [temp objectAtIndex:myInteger] ;
+    textInfo.text = [[temp objectAtIndex:myInteger] lastObject] ;
+    textHeaderInfo.text = [[temp objectAtIndex:myInteger] firstObject] ;
     [self updatePositionCount:dataDic  ];
 }
 
@@ -146,8 +148,8 @@
                                                   // firstText.hidden = NO;
                                                   
                                                   //update Text
-                                                  [self updateFlyingTextInfo:data textPointer:firstText ];
-                                                  
+
+                                                  [self updateFlyingTextInfo:data textContentPointer:firstText textHeaderPointer:firstHeaderText];
                                               } else {
                                                   NSLog(@"second");
                                                   
@@ -161,7 +163,7 @@
                                                   [secondHeaderText setFrame:CGRectMake(0,  800   , TEXT_WIDTH,TEXT_HEIGHT)];
                                                   //   secondText.hidden = NO;
                                                   //update Text
-                                                  [self updateFlyingTextInfo:data textPointer:secondText ];
+                                                  [self updateFlyingTextInfo:data textContentPointer:secondText textHeaderPointer:secondHeaderText ];
 
                                               }
                                               

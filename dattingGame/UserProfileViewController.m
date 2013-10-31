@@ -23,7 +23,15 @@
 -(NSMutableDictionary *)returnTestValue
 {
     NSInteger position = 0;
-    NSArray *infoArray = @[@"info1",@"info2",@"info3", @"info4",@"info5"];
+    
+    
+    NSArray *q1 = @[@"question1", @"asnwer1"];
+    NSArray *q2 = @[@"question2", @"asnwer2"];
+    NSArray *q3 = @[@"question3", @"asnwer3"];
+    NSArray *q4 = @[@"question4", @"asnwer4"];
+    NSArray *q5 = @[@"question5", @"asnwer5"];
+    NSArray *q6 = @[@"question6", @"asnwer6"];
+    NSArray *infoArray = @[q1,q2,q3,q4,q5, q6];
     
     
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -108,8 +116,8 @@
     
     self.profileInfo  = [self returnTestValue];
     
-    [textAnimation updateFlyingTextInfo:self.profileInfo textPointer:self.firstTextView ];
-    [textAnimation updateFlyingTextInfo:self.profileInfo textPointer:self.secondTextView ];
+    [textAnimation updateFlyingTextInfo:self.profileInfo textContentPointer:self.firstTextView textHeaderPointer:self.firstHeaderTextView ];
+    [textAnimation updateFlyingTextInfo:self.profileInfo textContentPointer:self.secondTextView textHeaderPointer:self.secondHeaderTextView];
    // [self setRoundedView:avatarView toDiameter:10.0];
 
 
