@@ -110,6 +110,24 @@
     
 }
 
++ (void)updateEditedText: (NSMutableDictionary *)dataDic
+textContentPointer            :  (UITextView *)textInfo
+textHeaderPointer              : (UITextView *)textHeaderInfo
+{
+    NSMutableArray *temp = dataDic[@"contentArray"];
+
+    //update array
+    NSArray *q1 = @[textHeaderInfo.text,  textInfo.text];
+    DebugLog(@"q1 = %@", q1);
+    int value = [dataDic[@"position"] intValue];
+ //   DebugLog(@"position = %d", value);
+   // DebugLog(@"temp before= %@", temp);
+    [temp replaceObjectAtIndex:(value - 2) withObject:q1];
+
+    [dataDic setObject:temp  forKey:@"contentArray"];
+  //  DebugLog(@"dataDic = %@", dataDic[@"contentArray"]);
+}
+
 +(void)animateTwoText: (UITextView *)firstText
      andHeaderText: (UITextView *)firstHeaderText
      withOtherText: (UITextView *)secondText

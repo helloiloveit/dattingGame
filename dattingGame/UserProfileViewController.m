@@ -24,14 +24,14 @@
     NSInteger position = 0;
     
     
-    NSArray *q1 = @[@"question1", @"I started to wonder, where are you among more than seven billion people in this world?. It seems really really difficult! I have asked myself same questions thousand times"];
-    NSArray *q2 = @[@"THe first things people usually notice about me", @"Young Bookish  Cute Silent"];
-    NSArray *q3 = @[@"Favorite books, movies show, music", @"seafood"];
-    NSArray *q4 = @[@"The six things i could never do without", @"Family, Friends, A Job"];
-    NSArray *q5 = @[@"Im looking for ", @"Straight guy only"];
-    NSArray *q6 = @[@"You should message me if", @"I'm a kind of person who has EQ level higher than normal, so quite sensitive. If you like my profile and wanna start a conversation, just send me a msg. In case you don't receive my reply, it's totally from me! You are cool as always ;)"];
-    NSArray *infoArray = @[q1,q2,q3,q4,q5, q6];
-    
+    NSArray *q1 = @[@"question1", @"Có một công việc trong mơ cùng với bạn bè tốt"];
+    NSArray *q2 = @[@"Tính cách gì ở bạn khiến bạn hài lòng nhất", @"Không bao giờ từ bỏ thứ mình muốn"];
+    NSArray *q3 = @[@"Bạn không thể sống thiếu :", @"Gia đình, Bạn bè và công việc"];
+    NSArray *q4 = @[@"Thứ gì khiến bạn cảm thấy hạnh phúc", @"Gặp gỡ chat chit với bạn bè sau một ngày làm việc vất vả"];
+    NSArray *q5 = @[@"Tính cách gì bạn không thể chịu nổi ", @"Phân biệt giới tính, vùng miền "];
+    NSArray *q6 = @[@"Bạn thường làm gì cuối tuần", @"Đi du lịch với bạn bè, cắm trại hoặc đơn giản là cafe cả ngày"];
+  //  NSMutableArray *infoArray = @[q1,q2,q3,q4,q5, q6];
+    NSMutableArray *infoArray = [NSMutableArray arrayWithObjects:q1,q2,q3,q4,q5,q6,nil];
     
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithInteger:position], @"position",
@@ -39,7 +39,13 @@
                                  nil];
     return data;
 }
-
+-(void)turnOffKeyBoard
+{
+    [self.firstTextView resignFirstResponder];
+    [self.secondTextView resignFirstResponder];
+    [self.firstHeaderTextView resignFirstResponder];
+    [self.secondHeaderTextView  resignFirstResponder];
+}
 - (void)swipeDetected:(UISwipeGestureRecognizer *)gesture
 {
     
@@ -56,10 +62,12 @@
         case UISwipeGestureRecognizerDirectionDown:
             // you can include this case too
             NSLog(@"down");
-                [self.firstTextView resignFirstResponder];
+                [self turnOffKeyBoard];
             break;
         case UISwipeGestureRecognizerDirectionLeft:
+            NSLog(@"swpie left");
         case UISwipeGestureRecognizerDirectionRight:
+            NSLog(@"swipe right");
             // disable timer for both left and right swipes.
             break;
         default:
@@ -81,6 +89,13 @@
      action:@selector(swipeDetected:)];
     swipeRecognizerDown.direction = UISwipeGestureRecognizerDirectionDown;
     [self.view addGestureRecognizer:swipeRecognizerDown];
+    
+    UISwipeGestureRecognizer *swipeRecognizerRemove =
+    [[UISwipeGestureRecognizer alloc]
+     initWithTarget:self
+     action:@selector(swipeDetected:)];
+    swipeRecognizerRemove.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeRecognizerRemove];
 }
 
 - (void) initUserAvatar
@@ -98,6 +113,16 @@
 }
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     DebugLog(@"end edit");
+    DebugLog(@"user value = %@", self.profileInfo);
+    NSLog(@"position of firstView x = %f", self.firstHeaderTextView.frame.origin.x);
+    NSLog(@"position of firstView y = %f", self.firstHeaderTextView.frame.origin.y);
+    NSLog(@"position of firstView x = %f", self.secondHeaderTextView.frame.origin.x);
+    NSLog(@"position of second y = %f", self.secondHeaderTextView.frame.origin.y);
+    if (self.firstHeaderTextView.frame.origin.y == HEADER_TEXT_POSITION) {
+        [textAnimation updateEditedText:self.profileInfo textContentPointer:self.firstTextView textHeaderPointer:self.firstHeaderTextView];
+    } else if (self.secondHeaderTextView.frame.origin.y == HEADER_TEXT_POSITION) {
+        [textAnimation updateEditedText:self.profileInfo textContentPointer:self.secondTextView  textHeaderPointer:self.secondHeaderTextView];
+    }
     return TRUE;
 }
 
@@ -108,6 +133,7 @@
 
 - (void)viewDidLoad
 {
+    DebugLog(@"");
     [super viewDidLoad];
     [self initUserAvatar];
     [self initSwipe];
