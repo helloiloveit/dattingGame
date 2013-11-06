@@ -8,7 +8,7 @@
 
 #import "textAnimation.h"
 #import "ConstantDefinition.h"
-
+#import "UIImage+StackBlur.h"
 @implementation textAnimation
 
 + (void) updatePositionCount: (NSMutableDictionary *)dataDic {
@@ -154,10 +154,11 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
                          if (firstText.frame.origin.y == ABOUT_ME_TEXT_POSITION)  {
-                             avatarPointer.alpha = 0;
+                         //    avatarPointer.alpha = 0;
                              firstText.alpha = 0;
                              [firstText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
-                             [avatarPointer setFrame:CGRectMake(0,  -600   , avatarPointer.frame.size.width, avatarPointer.frame.size.height)];
+                              avatarPointer.image = [avatarPointer.image stackBlur:200];
+                           //  [avatarPointer setFrame:CGRectMake(0,  -600   , avatarPointer.frame.size.width, avatarPointer.frame.size.height)];
                          }
                          else if (firstText.frame.origin.y == CONTENT_TEXT_POSITION) {
                              NSLog(@"move first view");

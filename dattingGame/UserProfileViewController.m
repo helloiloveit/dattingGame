@@ -101,8 +101,14 @@
 - (void) initUserAvatar
 {
     UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IMG_0855.JPG"]];
-    [ImageHandler setRoundedAvatarInPlayingWindowAtFirstView:avatarView toDiameter:300 atCell:self.view];
-    [self.view addSubview: avatarView];
+    [ImageHandler setBackGroundImageWithUserAvatar:avatarView toDiameter:300 atCell:self.view];
+   // self.view.contentMode = UIViewContentModeScaleAspectFit;
+
+  //  avatarView.layer.cornerRadius = 400/2;
+  //  avatarView.clipsToBounds = YES;
+    // cant get cell.frame.size.height here . because it is not the correct return number  exp: 300
+
+  //  self.view.contentMode = UIViewContentModeScaleAspectFit;
     self.avatarPointer = avatarView;
 }
 

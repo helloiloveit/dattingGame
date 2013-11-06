@@ -7,7 +7,7 @@
 //
 
 #import "ImageHandler.h"
-
+#import "UIImage+StackBlur.h"
 @implementation ImageHandler
 
 
@@ -40,4 +40,20 @@
     CGPoint centerValue = CGPointMake(cell.frame.size.width/2, newSize/2 + 50);
     avatarView.center = centerValue;
 }
+
++ (void)setBackGroundImageWithUserAvatar:(UIImageView *)avatarView toDiameter:(float)newSize atCell:(UIView *)cell;
+{
+
+    // cant get cell.frame.size.height here . because it is not the correct return number  exp: 300
+    avatarView.frame = CGRectMake(0, 0, cell.frame.size.width + 250, cell.frame.size.height);
+    CGPoint centerValue = CGPointMake(cell.frame.size.width/2, cell.frame.size.height/2);
+    avatarView.center = centerValue;
+
+    [cell addSubview:avatarView];
+
+    [cell sendSubviewToBack:avatarView];
+}
+
+
+
 @end

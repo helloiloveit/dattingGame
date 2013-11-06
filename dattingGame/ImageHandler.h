@@ -18,4 +18,6 @@
 + (void)setRoundedAvatarInPlayingWindow:(UIImageView *)avatarView toDiameter:(float)newSize atCell:(UIView *)cell;
 
 + (void)setRoundedAvatarInPlayingWindowAtFirstView:(UIImageView *)avatarView toDiameter:(float)newSize atCell:(UIView *)cell;
+
++ (void)setBackGroundImageWithUserAvatar:(UIImageView *)avatarView toDiameter:(float)newSize atCell:(UIView *)cell;
 @end

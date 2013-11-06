@@ -28,6 +28,7 @@
 		3A2E305D181E616900A85FF0 /* alex_mac.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305C181E616900A85FF0 /* alex_mac.jpg */; };
 		3A2E305F181E640700A85FF0 /* me.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E305E181E640700A85FF0 /* me.JPG */; };
 		3A2E3061181E66B800A85FF0 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E3060181E66B800A85FF0 /* yellow.png */; };
+		3A53A204182A08DC00AC5677 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53A203182A08DC00AC5677 /* UIImage+StackBlur.m */; };
 		3AD69C371821FBDF0047C566 /* textAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C361821FBDF0047C566 /* textAnimation.m */; };
 		3AD69C3A1822458D0047C566 /* PlayingWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C391822458D0047C566 /* PlayingWindowViewController.m */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,8 @@
 		3A2E305C181E616900A85FF0 /* alex_mac.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alex_mac.jpg; sourceTree = "<group>"; };
 		3A2E305E181E640700A85FF0 /* me.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.JPG; sourceTree = "<group>"; };
 		3A2E3060181E66B800A85FF0 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		3A53A202182A08D700AC5677 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
+		3A53A203182A08DC00AC5677 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		3AD69C351821FBDF0047C566 /* textAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textAnimation.h; sourceTree = "<group>"; };
 		3AD69C361821FBDF0047C566 /* textAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textAnimation.m; sourceTree = "<group>"; };
 		3AD69C381822458D0047C566 /* PlayingWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingWindowViewController.h; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		3A2E3010181A516900A85FF0 /* dattingGame */ = {
 			isa = PBXGroup;
 			children = (
+				3A53A205182A08E400AC5677 /* BlurImage */,
 				3A2E3019181A516900A85FF0 /* AppDelegate.h */,
 				3A2E301A181A516900A85FF0 /* AppDelegate.m */,
 				3A2E3025181A516900A85FF0 /* Main.storyboard */,
@@ -221,6 +225,15 @@
 				3A2E3055181E4E4B00A85FF0 /* ImageHandler.m */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		3A53A205182A08E400AC5677 /* BlurImage */ = {
+			isa = PBXGroup;
+			children = (
+				3A53A202182A08D700AC5677 /* UIImage+StackBlur.h */,
+				3A53A203182A08DC00AC5677 /* UIImage+StackBlur.m */,
+			);
+			name = BlurImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A53A204182A08DC00AC5677 /* UIImage+StackBlur.m in Sources */,
 				3A2E3056181E4E4B00A85FF0 /* ImageHandler.m in Sources */,
 				3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */,
 				3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */,
