@@ -22,7 +22,12 @@
 - (void) handleSingleTap: (UITapGestureRecognizer *)gesture
 {
     NSLog(@"user tabp");
-    [textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ];
+    if (![textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ])
+    {
+        
+        NSLog(@"do smth at the end");
+        self.verdictView.hidden = NO;
+    }
 }
 
 
@@ -61,6 +66,40 @@
     });
 }
 
+- (void)swipeDetected:(UISwipeGestureRecognizer *)gesture
+{
+    
+    NSLog(@"swipe");
+    //  [self moveOldView];
+    
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            // you can include this case too
+            //  [self moveUp];
+            
+            if (![textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ]){
+                
+                    NSLog(@"do smth at the end");
+                self.verdictView.hidden = NO;
+                
+            }
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            // you can include this case too
+            NSLog(@"down");
+
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+            NSLog(@"swpie left");
+        case UISwipeGestureRecognizerDirectionRight:
+            NSLog(@"swipe right");
+            // disable timer for both left and right swipes.
+            break;
+        default:
+            break;
+    }
+}
+
 - (void) initUserAvatar
 {
     //int r = arc4random() % 4;
@@ -97,12 +136,21 @@
     self.avatarPointer = avatarView;
 }
 
-- (void)viewDidLoad
+-(void)initBeforeStart
+{
+    self.verdictView.hidden = YES;
+}
+
+-(void)addGesture
 {
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
+}
+- (void)viewDidLoad
+{
+    [self addGesture];
     
-
+    [self initBeforeStart];
     [self targetPlayerResponse];
     
     [super viewDidLoad];

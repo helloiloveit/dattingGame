@@ -15,7 +15,7 @@
 textContentPointer            :  (UITextView *)textInfo
 textHeaderPointer              : (UITextView *)textHeaderInfo;
 
-+(void)animateTwoText: (UITextView *)firstText
++(BOOL)animateTwoText: (UITextView *)firstText
      andHeaderText: (UITextView *)firstHeaderText
      withOtherText: (UITextView *)secondText
     withHeaderText: (UITextView *)secondHeaderText
