@@ -9,6 +9,7 @@
 #import "PlayingWindowViewController.h"
 #import "ConstantDefinition.h"
 #import "textAnimation.h"
+#import "textDecoration.h"
 #import  <stdlib.h>
 @interface PlayingWindowViewController ()
 
@@ -25,6 +26,7 @@
 }
 
 
+
 - (void)targetPlayerResponse
 {
     InfoLog(@"");
@@ -38,18 +40,15 @@
             int r = rand() % 4;
             self.infoWindow.hidden = NO;
             if (r%2 == 0) {
-                self.infoWindow.text = @"doi tuong thay to mo ve ban";
-                self.infoWindow.textColor = [UIColor whiteColor];
-                self.infoWindow.textAlignment = NSTextAlignmentCenter;
-                self.infoWindow.font = [UIFont fontWithName:@"Heiti TC" size:18];
+
+                NSString *temp =@"doi tuong thay to mo ve ban";
+                [textDecoration setInfoTextAtPlayingView:self.infoWindow withInfo:temp];
                 [textAnimation showInfoText: self.infoWindow atViewController:self withFlag:TRUE];
 
             } else {
                // self.view.hidden = YES;
-                self.infoWindow.text = @"doi tuong bo di";
-                self.infoWindow.textColor = [UIColor whiteColor];
-                self.infoWindow.textAlignment = NSTextAlignmentCenter;
-                self.infoWindow.font = [UIFont fontWithName:@"Heiti TC" size:18];
+               NSString *temp = @"doi tuong bo di";
+                [textDecoration setInfoTextAtPlayingView:self.infoWindow withInfo:temp];
                // UITextView *textView;
                 UIEdgeInsets insets = UIEdgeInsetsMake(10, 10, 10, 10);
                 [self.infoWindow setContentInset:insets];
@@ -102,6 +101,8 @@
 {
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
+    
+
     [self targetPlayerResponse];
     
     [super viewDidLoad];

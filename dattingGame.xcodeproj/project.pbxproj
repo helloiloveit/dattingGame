@@ -34,6 +34,7 @@
 		3A53A20B182A231000AC5677 /* user3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3A53A20A182A231000AC5677 /* user3.JPG */; };
 		3A53A20D182A30D400AC5677 /* user5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A53A20C182A30D400AC5677 /* user5.jpg */; };
 		3A53A20F182A363A00AC5677 /* user7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A53A20E182A363A00AC5677 /* user7.jpg */; };
+		3A53A212182A3D5700AC5677 /* textDecoration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53A211182A3D5700AC5677 /* textDecoration.m */; };
 		3AD69C371821FBDF0047C566 /* textAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C361821FBDF0047C566 /* textAnimation.m */; };
 		3AD69C3A1822458D0047C566 /* PlayingWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD69C391822458D0047C566 /* PlayingWindowViewController.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,8 @@
 		3A53A20A182A231000AC5677 /* user3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user3.JPG; sourceTree = "<group>"; };
 		3A53A20C182A30D400AC5677 /* user5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user5.jpg; sourceTree = "<group>"; };
 		3A53A20E182A363A00AC5677 /* user7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user7.jpg; sourceTree = "<group>"; };
+		3A53A210182A3D5700AC5677 /* textDecoration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textDecoration.h; sourceTree = "<group>"; };
+		3A53A211182A3D5700AC5677 /* textDecoration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textDecoration.m; sourceTree = "<group>"; };
 		3AD69C351821FBDF0047C566 /* textAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textAnimation.h; sourceTree = "<group>"; };
 		3AD69C361821FBDF0047C566 /* textAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textAnimation.m; sourceTree = "<group>"; };
 		3AD69C381822458D0047C566 /* PlayingWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingWindowViewController.h; sourceTree = "<group>"; };
@@ -233,6 +236,7 @@
 		3A2E305B181E4F4C00A85FF0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3A53A213182A3D5C00AC5677 /* TextDecoration */,
 				3AD69C351821FBDF0047C566 /* textAnimation.h */,
 				3AD69C361821FBDF0047C566 /* textAnimation.m */,
 				3ADF631C1820DCBC0022C76C /* ConstantDefinition.h */,
@@ -249,6 +253,15 @@
 				3A53A203182A08DC00AC5677 /* UIImage+StackBlur.m */,
 			);
 			name = BlurImage;
+			sourceTree = "<group>";
+		};
+		3A53A213182A3D5C00AC5677 /* TextDecoration */ = {
+			isa = PBXGroup;
+			children = (
+				3A53A210182A3D5700AC5677 /* textDecoration.h */,
+				3A53A211182A3D5700AC5677 /* textDecoration.m */,
+			);
+			name = TextDecoration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +372,7 @@
 			files = (
 				3A53A204182A08DC00AC5677 /* UIImage+StackBlur.m in Sources */,
 				3A2E3056181E4E4B00A85FF0 /* ImageHandler.m in Sources */,
+				3A53A212182A3D5700AC5677 /* textDecoration.m in Sources */,
 				3A2E3047181A52B500A85FF0 /* UserProfileViewController.m in Sources */,
 				3A2E301B181A516900A85FF0 /* AppDelegate.m in Sources */,
 				3AD69C3A1822458D0047C566 /* PlayingWindowViewController.m in Sources */,
