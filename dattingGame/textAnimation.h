@@ -24,7 +24,8 @@ textHeaderPointer              : (UITextView *)textHeaderInfo;
 
 
 + (void)clearInfoText: (UITextView *)text;
-+ (void)showInfoText: (UITextView *)text;
++ (void)showInfoText: (UITextView *)text atViewController: (UIViewController *)VC
+            withFlag:(BOOL)flag;
 
 + (void)updateEditedText: (NSMutableDictionary *)dataDic
 textContentPointer            :  (UITextView *)textInfo

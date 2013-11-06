@@ -11,5 +11,6 @@
 @interface PlayingWindowViewController : UserProfileViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *infoWindow;
+- (IBAction)homeButton:(id)sender;
 
 @end

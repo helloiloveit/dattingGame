@@ -88,7 +88,8 @@
                          
 }
 
-+ (void)showInfoText: (UITextView *)text
++ (void)showInfoText: (UITextView *)text atViewController: (UIViewController *)VC
+            withFlag:(BOOL)flag
 {
     NSLog(@"position of firstView x = %f", text.frame.origin.x);
     NSLog(@"position of firstView y = %f", text.frame.origin.y);
@@ -97,14 +98,14 @@
                           delay:0
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
-                       //  text.alpha = 1;
                          [text setFrame:CGRectMake(0,  0   , TEXT_WIDTH, 44)];
-                        // text.text = @"doi tuong thay to mo ve ban";
-                     }
-     
+                     }     
                      completion:^(BOOL finished){
-                         //[text setFrame:CGRectMake(0,  44   , TEXT_WIDTH, 44)];
-                         [self clearInfoText:text];
+                         if (!flag) {
+                            [ VC performSegueWithIdentifier:     @"go_home" sender: NULL];
+                         } else {
+                             [self clearInfoText:text];
+                         }
                      }];
     
     
@@ -148,7 +149,7 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
         return;
     }
     
-    
+
     [UIView animateWithDuration:1
                           delay:0
                         options: UIViewAnimationCurveEaseInOut
@@ -156,19 +157,25 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                          if (firstText.frame.origin.y == ABOUT_ME_TEXT_POSITION)  {
                          //    avatarPointer.alpha = 0;
                              firstText.alpha = 0;
-                             [firstText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
-                              avatarPointer.image = [avatarPointer.image stackBlur:200];
+                             [firstText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_TOP   , TEXT_WIDTH, TEXT_HEIGHT)];
+                              avatarPointer.image = [avatarPointer.image stackBlur:BLUR_DEGRE];
+                             
+                             // change firstText
+                             firstText.alpha = 1;
+                             firstText.backgroundColor = [UIColor clearColor];
+                             firstText.textColor = [UIColor whiteColor];
+                             
                            //  [avatarPointer setFrame:CGRectMake(0,  -600   , avatarPointer.frame.size.width, avatarPointer.frame.size.height)];
                          }
                          else if (firstText.frame.origin.y == CONTENT_TEXT_POSITION) {
                              NSLog(@"move first view");
-                             [firstHeaderText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
-                             [firstText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
+                             [firstHeaderText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_TOP   , TEXT_WIDTH, TEXT_HEIGHT)];
+                             [firstText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_TOP   , TEXT_WIDTH, TEXT_HEIGHT)];
                              
                          } else {
                              NSLog(@" move second view");
-                             [secondText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
-                             [secondHeaderText setFrame:CGRectMake(0,  -100   , TEXT_WIDTH, TEXT_HEIGHT)];
+                             [secondText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_TOP   , TEXT_WIDTH, TEXT_HEIGHT)];
+                             [secondHeaderText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_TOP   , TEXT_WIDTH, TEXT_HEIGHT)];
                          }
                      }
                      completion:^(BOOL finished){
@@ -177,12 +184,12 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                                                delay:0
                                              options: UIViewAnimationCurveEaseOut
                                           animations:^{
-                                              if ((firstText.frame.origin.y == -100)) {
+                                              if ((firstText.frame.origin.y == OUT_OF_SCREEN_POSITION_TOP)) {
                                                   NSLog(@"second view comming");
                                                   
                                                   [secondText setFrame:CGRectMake(0,  CONTENT_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   [secondHeaderText setFrame:CGRectMake(0,  HEADER_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
-                                              } else if (secondText.frame.origin.y == -100) {
+                                              } else if (secondText.frame.origin.y == OUT_OF_SCREEN_POSITION_TOP) {
                                                   NSLog(@"first view comming");
                                                   firstHeaderText.hidden = NO;
                                                   [firstText setFrame:CGRectMake(0,  CONTENT_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
@@ -193,12 +200,12 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                                           completion:^(BOOL finished){
                                               NSLog(@"Done!");
                                               
-                                              if ((firstText.frame.origin.y == -100)) {
+                                              if ((firstText.frame.origin.y == OUT_OF_SCREEN_POSITION_TOP)) {
                                                   NSLog(@"first");
                                                   //firstText.hidden = YES;
                                                   firstText.alpha = 1;
-                                                  [firstText setFrame:CGRectMake(0,  800   , TEXT_WIDTH, TEXT_HEIGHT)];
-                                                  [firstHeaderText setFrame:CGRectMake(0,  800   , TEXT_WIDTH, TEXT_HEIGHT)];
+                                                  [firstText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_BOTTOM   , TEXT_WIDTH, TEXT_HEIGHT)];
+                                                  [firstHeaderText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_BOTTOM   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   [secondText setFrame:CGRectMake(0,  CONTENT_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   [secondHeaderText setFrame:CGRectMake(0,  HEADER_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   
@@ -216,8 +223,8 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                                                   [firstText setFrame:CGRectMake(0,  CONTENT_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   [firstHeaderText setFrame:CGRectMake(0,  HEADER_TEXT_POSITION   , TEXT_WIDTH, TEXT_HEIGHT)];
                                                   
-                                                  [secondText setFrame:CGRectMake(0,  800   , TEXT_WIDTH,TEXT_HEIGHT)];
-                                                  [secondHeaderText setFrame:CGRectMake(0,  800   , TEXT_WIDTH,TEXT_HEIGHT)];
+                                                  [secondText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_BOTTOM   , TEXT_WIDTH,TEXT_HEIGHT)];
+                                                  [secondHeaderText setFrame:CGRectMake(0,  OUT_OF_SCREEN_POSITION_BOTTOM   , TEXT_WIDTH,TEXT_HEIGHT)];
                                                   //   secondText.hidden = NO;
                                                   //update Text
                                                   [self updateFlyingTextInfo:data textContentPointer:secondText textHeaderPointer:secondHeaderText ];

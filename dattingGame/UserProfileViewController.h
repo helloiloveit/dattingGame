@@ -18,7 +18,10 @@
 - (IBAction)playSettingButton:(id)sender;
 - (IBAction)editButton:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 
 @property (strong, nonatomic) UIImageView *avatarPointer;

@@ -10,7 +10,7 @@
 #import "tableCell.h"
 #import "ConstantDefinition.h"
 #import "textAnimation.h"
-
+#include <stdlib.h>
 
 @interface UserProfileViewController ()
 
@@ -24,7 +24,7 @@
     NSInteger position = 0;
     
     
-    NSArray *q1 = @[@"question1", @"Có một công việc trong mơ cùng với bạn bè tốt"];
+    NSArray *q1 = @[@"question1", @"Tôi 17 tuổi. 17 tuổi, chỉ khoái ngủ nướng, dậy thì xách xe đạp ra đường vòng vèo phố cổ ăn quà, tối lượn bờ hồ hóng gió, đêm online facebook, chat chit, đánh dota, đọc Conan"];
     NSArray *q2 = @[@"Tính cách gì ở bạn khiến bạn hài lòng nhất", @"Không bao giờ từ bỏ thứ mình muốn"];
     NSArray *q3 = @[@"Bạn không thể sống thiếu :", @"Gia đình, Bạn bè và công việc"];
     NSArray *q4 = @[@"Thứ gì khiến bạn cảm thấy hạnh phúc", @"Gặp gỡ chat chit với bạn bè sau một ngày làm việc vất vả"];
@@ -100,15 +100,13 @@
 
 - (void) initUserAvatar
 {
-    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IMG_0855.JPG"]];
+    NSString *imageName;
+    imageName = @"user6.JPG";
+
+    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+
     [ImageHandler setBackGroundImageWithUserAvatar:avatarView toDiameter:300 atCell:self.view];
-   // self.view.contentMode = UIViewContentModeScaleAspectFit;
 
-  //  avatarView.layer.cornerRadius = 400/2;
-  //  avatarView.clipsToBounds = YES;
-    // cant get cell.frame.size.height here . because it is not the correct return number  exp: 300
-
-  //  self.view.contentMode = UIViewContentModeScaleAspectFit;
     self.avatarPointer = avatarView;
 }
 
@@ -154,9 +152,10 @@
     
     [textAnimation updateFlyingTextInfo:self.profileInfo textContentPointer:self.firstTextView textHeaderPointer:self.firstHeaderTextView ];
     [textAnimation updateFlyingTextInfo:self.profileInfo textContentPointer:self.secondTextView textHeaderPointer:self.secondHeaderTextView];
-   // [self setRoundedView:avatarView toDiameter:10.0];
-
-
+    
+    self.firstTextView.backgroundColor = [UIColor whiteColor];
+    self.firstTextView.textColor       =  [UIColor blackColor];
+    self.firstTextView.alpha           = 0.9;
 	// Do any additional setup after loading the view.
 }
 
@@ -180,6 +179,8 @@
     }
 }
 
+
+
 -(void) setEditable: (BOOL) option{
     self.firstTextView.editable = option;
     self.secondTextView.editable = option;
@@ -188,17 +189,19 @@
 }
 
 - (IBAction)editButton:(id)sender {
-
+    
     NSString *buttonName = [sender titleForState:UIControlStateNormal];
+    NSLog(@"buttonName = %@", buttonName);
     if ([buttonName isEqualToString: @"Edit"]) {
         [sender setTitle:@"Done" forState:UIControlStateNormal];
         [self setEditable:YES];
-    //    self.playButton.title = @"Setting";
+        [self.playButton setTitle:@"Setting" forState:UIControlStateNormal];
+
 
     } else if ([buttonName isEqualToString: @"Done"]) {
      [sender setTitle:@"Edit" forState:UIControlStateNormal];
         [self setEditable:NO];
-        self.playButton.title = @"Play";
+        [self.playButton setTitle:@"Play" forState:UIControlStateNormal];
     }
 }
 @end

@@ -9,6 +9,7 @@
 #import "PlayingWindowViewController.h"
 #import "ConstantDefinition.h"
 #import "textAnimation.h"
+#import  <stdlib.h>
 @interface PlayingWindowViewController ()
 
 @end
@@ -34,20 +35,67 @@
         sleep(1);
         dispatch_async(dispatch_get_main_queue(), ^{
             DebugLog(@"user response");
-            int r = arc4random() % 5;
+            int r = rand() % 4;
             self.infoWindow.hidden = NO;
-            if (r/2) {
+            if (r%2 == 0) {
                 self.infoWindow.text = @"doi tuong thay to mo ve ban";
-                [textAnimation showInfoText: self.infoWindow];
+                self.infoWindow.textColor = [UIColor whiteColor];
+                self.infoWindow.textAlignment = NSTextAlignmentCenter;
+                self.infoWindow.font = [UIFont fontWithName:@"Heiti TC" size:18];
+                [textAnimation showInfoText: self.infoWindow atViewController:self withFlag:TRUE];
 
             } else {
                // self.view.hidden = YES;
                 self.infoWindow.text = @"doi tuong bo di";
-                [textAnimation showInfoText: self.infoWindow];
+                self.infoWindow.textColor = [UIColor whiteColor];
+                self.infoWindow.textAlignment = NSTextAlignmentCenter;
+                self.infoWindow.font = [UIFont fontWithName:@"Heiti TC" size:18];
+               // UITextView *textView;
+                UIEdgeInsets insets = UIEdgeInsetsMake(10, 10, 10, 10);
+                [self.infoWindow setContentInset:insets];
+                
+                [textAnimation showInfoText:self.infoWindow atViewController:self withFlag:FALSE];
+                
             }
         });
         
     });
+}
+
+- (void) initUserAvatar
+{
+    //int r = arc4random() % 4;
+    int r = rand() % 6;
+
+    NSString *imageName;
+    switch (r+1) {
+        case 1:
+            imageName = @"user1.JPG";
+            break;
+        case 2:
+            imageName = @"user2.jpg";
+            break;
+        case 3:
+            imageName = @"user3.JPG";
+            break;
+        case 4:
+            imageName = @"user4.JPG";
+            break;
+        case 5:
+            imageName = @"user5.JPG";
+            break;
+        case 6:
+            imageName = @"user7.JPG";
+            break;
+        default:
+            imageName = @"user5.JPG";
+            break;
+    }
+    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    
+    [ImageHandler setBackGroundImageWithUserAvatar:avatarView toDiameter:300 atCell:self.view];
+    
+    self.avatarPointer = avatarView;
 }
 
 - (void)viewDidLoad
@@ -66,4 +114,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)homeButton:(id)sender {
+             [self performSegueWithIdentifier:     @"go_home" sender: NULL];
+}
 @end
