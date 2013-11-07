@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *infoWindow;
 - (IBAction)homeButton:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIView *verdicView;
+
 @end

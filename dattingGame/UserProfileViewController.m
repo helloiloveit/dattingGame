@@ -57,7 +57,8 @@
             // you can include this case too
            //  [self moveUp];
 
-            [textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ];
+            if (![textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ])
+                NSLog(@"do smth when reach end");
             break;
         case UISwipeGestureRecognizerDirectionDown:
             // you can include this case too

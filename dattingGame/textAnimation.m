@@ -129,7 +129,7 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
   //  DebugLog(@"dataDic = %@", dataDic[@"contentArray"]);
 }
 
-+(void)animateTwoText: (UITextView *)firstText
++(BOOL)animateTwoText: (UITextView *)firstText
      andHeaderText: (UITextView *)firstHeaderText
      withOtherText: (UITextView *)secondText
     withHeaderText: (UITextView *)secondHeaderText
@@ -146,7 +146,7 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
 
     
     if ([self checkifFlyingTextLastTime:data]) {
-        return;
+        return FALSE;
     }
     
 
@@ -234,7 +234,7 @@ textHeaderPointer              : (UITextView *)textHeaderInfo
                                           }];
                      }];
     
-    
+    return TRUE;
 }
 
 @end

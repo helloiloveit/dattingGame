@@ -22,7 +22,10 @@
 - (void) handleSingleTap: (UITapGestureRecognizer *)gesture
 {
     NSLog(@"user tabp");
-    [textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ];
+    if (![textAnimation animateTwoText:self.firstTextView andHeaderText:self.firstHeaderTextView withOtherText:self.secondTextView withHeaderText:self.secondHeaderTextView withAvatarImg:self.avatarPointer withData:self.profileInfo ])
+    {
+        self.verdicView.hidden = NO;
+    }
 }
 
 
@@ -59,13 +62,47 @@
         });
         
     });
+
 }
+- (void)targetPlayerResponseRandom
+{
+    InfoLog(@"");
+    [self.infoWindow setFrame:CGRectMake(0, -200   , TEXT_WIDTH, TEXT_HEIGHT)];
+    dispatch_queue_t fetchQ = dispatch_queue_create("Flickr Fetch", NULL);
+    dispatch_async(fetchQ, ^{
+        
+        sleep(4);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            DebugLog(@"user response");
+            int r = rand() % 4;
+            self.infoWindow.hidden = NO;
+            if (r%2 == 0) {
+ 
+                
+            } else {
+                // self.view.hidden = YES;
+                NSString *temp = @"doi tuong bo di";
+                [textDecoration setInfoTextAtPlayingView:self.infoWindow withInfo:temp];
+                // UITextView *textView;
+                UIEdgeInsets insets = UIEdgeInsetsMake(10, 10, 10, 10);
+                [self.infoWindow setContentInset:insets];
+                
+                [textAnimation showInfoText:self.infoWindow atViewController:self withFlag:FALSE];
+                
+            }
+        });
+        
+    });
+    
+}
+
+
 
 - (void) initUserAvatar
 {
     //int r = arc4random() % 4;
     int r = rand() % 6;
-
+    NSLog(@"check r = %d", r);
     NSString *imageName;
     switch (r+1) {
         case 1:
@@ -97,14 +134,24 @@
     self.avatarPointer = avatarView;
 }
 
-- (void)viewDidLoad
+-(void)initGesture
 {
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
-    
+}
 
+-(void)initComponentForView
+{
+    self.verdicView.hidden = YES;
+    self.verdicView.backgroundColor = [UIColor whiteColor];
+    [self initGesture];
+}
+
+- (void)viewDidLoad
+{
+    [self initComponentForView];
     [self targetPlayerResponse];
-    
+    [self targetPlayerResponseRandom];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
