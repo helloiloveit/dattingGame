@@ -177,6 +177,7 @@
         // lets play
     } else if ([buttonName isEqualToString: @"Setting"]) {
         // lets do setting
+        [self performSegueWithIdentifier:     @"go_to_setting" sender: NULL];
     }
 }
 
